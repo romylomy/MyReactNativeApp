@@ -10,10 +10,17 @@ const App = () => {
     'Go to gym',
     'Walk dog'
   ]);
+
+  const addTask = (taskText: any) => {
+    if (taskText && !tasks.includes(taskText)) { 
+      setTasks([...tasks, taskText]);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ToDoList tasks = {tasks} />
-      <ToDoForm />
+      <ToDoForm addTask={addTask}/>
     </SafeAreaView>
   );
 };
